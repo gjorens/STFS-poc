@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>STFB poc</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1f4fd8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="STFB poc">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <span id="who"></span>
+    <span id="net"></span>
+    <button id="signout" hidden>Sign out</button>
+  </header>
+
+  <div id="demoBanner" hidden>Demo mode: no Firebase config yet. Documents are stored only in this browser.</div>
+
+  <section id="signin" hidden>
+    <h1>STFB poc</h1>
+    <p>Sign in once. Your documents will then appear on all your devices.</p>
+    <button id="signinBtn" class="primary">Sign in with Google</button>
+  </section>
+
+  <main id="app" hidden>
+    <aside>
+      <button id="newBtn">New</button>
+      <ul id="list"></ul>
+    </aside>
+    <article>
+      <input id="title" placeholder="Title" autocomplete="off">
+      <textarea id="body" placeholder="Start typing..."></textarea>
+      <div class="bar">
+        <span id="saveState"></span>
+        <button id="saveBtn" class="primary">Save</button>
+      </div>
+    </article>
+  </main>
+
+  <script type="module" src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+  </script>
+</body>
+</html>
